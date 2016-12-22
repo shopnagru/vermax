@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule ^config.properties$ config.php?%{QUERY_STRING}&type=conf
+RewriteRule ^update.properties$ config.php?%{QUERY_STRING}&type=update
+RewriteRule ^setting.properties$ config.php?%{QUERY_STRING}&type=settings
+RewriteRule ^Vermax\sHD100/update.xml$ config.php?%{QUERY_STRING}&type=fwupdate
