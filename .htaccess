@@ -1,0 +1,12 @@
+Options -Indexes
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php 
+
+RewriteRule ^config.properties$ config.php?%{QUERY_STRING}&type=config
+RewriteRule ^update.properties$ config.php?%{QUERY_STRING}&type=update
+RewriteRule ^setting.properties$ config.php?%{QUERY_STRING}&type=setting
+RewriteRule ^Vermax\sHD100/update.xml$ config.php?%{QUERY_STRING}&type=firmware&model=HD100
+RewriteRule ^Vermax\sUHD200/update.xml$ config.php?%{QUERY_STRING}&type=firmware&model=UHD200
