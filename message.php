@@ -11,6 +11,7 @@
 	header('Content-type: text/xml; charset=utf-8');
 	echo '<?xml version="1.0" encoding="UTF-8"?>
 	<notification_list>';
+    /** @var array $config */
 	include('config/config.php');
 	$host = $config['host'];
 	$dbname = $config['dbname'];
@@ -53,7 +54,7 @@
 	$maxmask = 0;
 	while ($userconf = $user->fetch_assoc()) {
 		$confIp = $userconf['ip'];
-		list($net, $mask) = split("/", $confIp);
+		list($net, $mask) = explode("/", $confIp);
 		if(!empty($mask)){
 			if(ipIn($ip, $net, $mask)){
 				if($mask == 32){
