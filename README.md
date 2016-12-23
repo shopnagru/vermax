@@ -17,7 +17,7 @@ php >= 5.0
 
 `php base_changer.php`
 
-Удалите файл base_changer.php, если произвели установку на чистую базу.
+Удалите файл base_changer.php.
 
 
 ## Администрирование
