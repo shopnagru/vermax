@@ -1,11 +1,9 @@
 <?php
 $config = array();
 /**
- * Подключения к бд для activeRecord
+ * Подключение к бд
  */
 $config['host'] = '';
 $config['dbname'] = '';
 $config['dbuser'] = '';
 $config['dbpass'] = '';
-
-return $config;

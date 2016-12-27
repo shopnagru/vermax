@@ -11,5 +11,5 @@ CREATE TABLE `configs` (
 INSERT INTO `configs` (`id`, `name`, `description`, `type`) VALUES (1, 'config_default', 'Default config', 'config');
 INSERT INTO `configs` (`id`, `name`, `description`, `type`) VALUES (2, 'setting_default', 'Default setting', 'setting');
 INSERT INTO `configs` (`id`, `name`, `description`, `type`) VALUES (3, 'update_default', 'Default player update', 'update');
-INSERT INTO `configs` (`id`, `name`, `description`, `type`) VALUES (4, 'HD100_default', 'Default HD100 firmware', 'firmware');
-INSERT INTO `configs` (`id`, `name`, `description`, `type`) VALUES (5, 'UHD200_default', 'Default UHD200 firmware', 'firmware');
+INSERT INTO `configs` (`id`, `name`, `description`, `type`) VALUES (4, 'firmware_default', 'Default HD100 firmware', 'firmware');
+INSERT INTO `configs` (`id`, `name`, `description`, `type`) VALUES (5, 'UHD200_firmware_default', 'Default UHD200 firmware', 'firmware');
