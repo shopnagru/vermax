@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS `confToIp`;
+DROP TABLE IF EXISTS `configs_old`;
+DROP TABLE IF EXISTS `fwupdates`;
+DROP TABLE IF EXISTS `settings`;
+DROP TABLE IF EXISTS `updates`;
+DROP TABLE IF EXISTS `stats_alpha`;
+DROP TABLE IF EXISTS `managers_old`;

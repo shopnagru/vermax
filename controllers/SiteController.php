@@ -126,4 +126,14 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    /**
+     * Get message from device
+     *
+     * @return string
+     */
+    public function actionStat()
+    {
+        return $this->render('stat');
+    }
 }
