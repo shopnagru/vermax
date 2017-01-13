@@ -31,3 +31,7 @@ tests/_support/_generated
 /web/assets/
 
 /config/db.php
+
+/logs
+/ovas
+/public_html
