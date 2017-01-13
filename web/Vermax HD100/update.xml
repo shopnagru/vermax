@@ -1,0 +1,11 @@
+<update>
+    <md5>b690dd8f6f86174c894a195a0b6bbb0b</md5>
+    <url>http://update.vermax.com/Vermax HD100/updatem.zip</url>
+    <size>198826454</size>
+    <release_notes>Tiny firmware v1.3.1m (2015.04.10)</release_notes>
+    <backup_notice>
+        Не отключайте питание во время обновления! Это может привести к повреждению устройства и как следствие испорченному настроению
+    </backup_notice>
+    <status_note>-</status_note>
+    <buildver>20150410</buildver>
+</update>
