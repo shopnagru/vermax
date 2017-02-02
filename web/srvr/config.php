@@ -68,6 +68,11 @@ if(isset($_GET['type'])){
 	$query = 'SELECT * FROM `clients` WHERE '.$macor.' ip="'.$ip.'" LIMIT 1';
 
 	$result = $db->query($query);
+	if($result){
+		if($result->num_rows == 0){
+			$result = false;
+		}
+	}
 
 	if($result) {
 		$user = $result->fetch_assoc();
