@@ -173,10 +173,12 @@ class ConfigsController extends Controller
     public function actionSavenewparams(){
 
         $data = array();
-        foreach ($_POST['Params'] as $key=>$param){
-           foreach ($param as $k=>$par){
-               $data[$k][$key] = $par;
-           }
+        if(isset($_POST['Params']){
+		    foreach ($_POST['Params'] as $key=>$param){
+		       foreach ($param as $k=>$par){
+		           $data[$k][$key] = $par;
+		       }
+		    }
         }
         foreach ($data as $key_e=>$entyty){
             $model = Params::find()->where(['id'=>$key_e])->one();
