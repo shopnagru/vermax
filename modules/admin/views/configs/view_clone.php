@@ -34,14 +34,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <form  action="/admin/configs/savenewparams" method="post">
             <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>" value="<?= Yii::$app->request->csrfToken; ?>" />
-    <?foreach ($params as $param): ?>
+    <?php foreach ($params as $param){ ?>
         <?= $this->render('form_params', [
             'model' => $param,
             'params' => $params,
             'configs' => $configs,
-        ]) ?>
+        ]);
+        ?>
 
-    <?php endforeach;?>
+    <?php } ?>
 
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Сохранить</button>
