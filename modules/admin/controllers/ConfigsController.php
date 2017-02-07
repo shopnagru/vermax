@@ -173,7 +173,7 @@ class ConfigsController extends Controller
     public function actionSavenewparams(){
 
         $data = array();
-        if(isset($_POST['Params']){
+        if(isset($_POST['Params'])){
 		    foreach ($_POST['Params'] as $key=>$param){
 		       foreach ($param as $k=>$par){
 		           $data[$k][$key] = $par;
