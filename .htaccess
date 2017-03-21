@@ -2,16 +2,15 @@ Options +FollowSymLinks
 IndexIgnore */*
 RewriteEngine on
 
-RewriteRule ^config.properties$ /web/srvr/config.php?%{QUERY_STRING}&type=config [L]
-RewriteRule ^update.properties$ /web/srvr/config.php?%{QUERY_STRING}&type=update [L]
-RewriteRule ^setting.properties$ /web/srvr/config.php?%{QUERY_STRING}&type=setting [L]
-RewriteRule ^Vermax\sHD100/update.xml$ /web/srvr/config.php?%{QUERY_STRING}&type=firmware&model=HD100 [L]
-RewriteRule ^Vermax\sUHD200/update.xml$ /web/srvr/config.php?%{QUERY_STRING}&type=firmware&model=UHD200 [L]
-RewriteRule ^message(.*)$ /web/srvr/message.php?%{QUERY_STRING} [L]
-RewriteRule ^stat(.*)$ /web/srvr/stat.php?%{QUERY_STRING} [L]
-RewriteRule ^disk/(.*)$ /web/disk/$1 [L]
-RewriteRule ^disk/(.*)$ /web/disk/$1 [L]
-RewriteRule ^wall.jpg$ /web/wall.jpg [L]
+#RewriteRule ^config.properties$ /web/srvr/config.php?%{QUERY_STRING}&type=config [L]
+#RewriteRule ^update.properties$ /web/srvr/config.php?%{QUERY_STRING}&type=update [L]
+#RewriteRule ^setting.properties$ /web/srvr/config.php?%{QUERY_STRING}&type=setting [L]
+#RewriteRule ^Vermax\sHD100/update.xml$ /web/srvr/config.php?%{QUERY_STRING}&type=firmware&model=HD100 [L]
+#RewriteRule ^Vermax\sUHD200/update.xml$ /web/srvr/config.php?%{QUERY_STRING}&type=firmware&model=UHD200 [L]
+#RewriteRule ^message(.*)$ /web/srvr/message.php?%{QUERY_STRING} [L]
+#RewriteRule ^stat(.*)$ /web/srvr/stat.php?%{QUERY_STRING} [L]
+#RewriteRule ^disk/(.*)$ /web/disk/$1 [L]
+#RewriteRule ^wall.jpg$ /web/wall.jpg [L]
 
 RewriteCond %{REQUEST_URI} !^/(web)
 RewriteRule ^assets/(.*)$ /web/assets/$1 [L]
