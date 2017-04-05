@@ -5,7 +5,5 @@ $host = "localhost";
 $dbname = "vermax";
 $user = "root";
 $pas = "ПАРОЛЬ ОТ ВАШЕЙ БД";
-$db = mysql_connect($host, $user, $pas);
-mysql_select_db($dbname, $db);
-mysql_query('SET NAMES utf8');
-?>
+$db = mysqli_connect($host, $user, $pas, $dbname);
+mysqli_query($db, 'SET NAMES utf8');

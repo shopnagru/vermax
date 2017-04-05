@@ -28,6 +28,9 @@ if(isset($_GET['type'])){
 	else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){ $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];}
 	else{ $ip=$_SERVER['REMOTE_ADDR'];}
 //получаем MAC
+    $mac = '';
+	$macor = '';
+	$version = '';
 	if(isset($_GET['mac'])){
 		if($_GET['mac'] != ''){
 			$mac = strtolower($_GET['mac']);
@@ -39,18 +42,18 @@ if(isset($_GET['type'])){
 		$version = $_GET['version'];
 	}
 //ищем конфиг по MAC или IP
-	$user = mysql_query("SELECT * FROM `confToIp` WHERE $macor ip='$ip'");
-	$userconf = mysql_fetch_array($user);
+	$user = mysqli_query($db, "SELECT * FROM `confToIp` WHERE $macor ip='$ip'");
+	$userconf = mysqli_fetch_array($user);
 	if(!empty($userconf[$t])){
 		$name = $userconf[$t];
 	}
 //иначе ищем конфиг по маске
 	else{
-		$user = mysql_query("SELECT * FROM `confToIp`");
+		$user = mysqli_query($db, "SELECT * FROM `confToIp`");
 		$maxmask = 0;
-		while ($userconf = mysql_fetch_assoc($user)) {
+		while ($userconf = mysqli_fetch_assoc($user)) {
 			$confIp = $userconf['ip'];
-			list($net, $mask) = split("/", $confIp);
+			list($net, $mask) = explode("/", $confIp);
 			if(!empty($mask)){
 				if(ipIn($ip, $net, $mask)){
 					if($mask == 32){
@@ -79,10 +82,9 @@ if(isset($_GET['type'])){
 //иначе конфиг пользователя
 	else{ $wherename = "name='".$name."'";}
 //отдаем конфиг
-	$confinfo = mysql_query("SELECT * FROM `$tb` WHERE $wherename");
-	$conf = mysql_fetch_array($confinfo);
+	$confinfo = mysqli_query($db, "SELECT * FROM `$tb` WHERE $wherename");
+	$conf = mysqli_fetch_array($confinfo);
 	echo $conf[$pr];
 //логируем запрос в базу
-	mysql_query("INSERT INTO `requests` (ip, mac, version, type, response) VALUES ('$ip', '$mac', '$version', '$msg', '$name')");
+	mysqli_query($db, "INSERT INTO `requests` (ip, mac, version, type, response) VALUES ('$ip', '$mac', '$version', '$msg', '$name')");
 }
-?>
