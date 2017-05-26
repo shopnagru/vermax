@@ -64,6 +64,10 @@ if(isset($_GET['type'])){
 	if(isset($_GET['version'])){
 		$version = $_GET['version'];
 	}
+	//Получаем от приставки версию ПО
+	if(isset($_GET['fw'])){
+		$fw = $_GET['fw'];
+	}
 	//Ищем пользователя по MAC или IP
 	$query = 'SELECT * FROM `clients` WHERE '.$macor.' ip="'.$ip.'" LIMIT 1';
 
@@ -203,6 +207,6 @@ if(isset($_GET['type'])){
 	}
 	
 //Сохраняем лог запрос и ответ
-	$db->query("INSERT INTO `requests_monitor` (ip, mac, version, type, response) VALUES ('$ip', '$mac', '$version', '$msg', '$print_conf')");
+	$db->query("INSERT INTO `requests_monitor` (ip, mac, version, fw, type, response) VALUES ('$ip', '$mac', '$version', '$fw', '$msg', '$print_conf')");
 }
 ?>
