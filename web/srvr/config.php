@@ -60,10 +60,12 @@ if(isset($_GET['type'])){
 			$macor = "LOWER(mac)='".$mac."' OR";
 		}
 	}
+	$version = '';
 	//Получаем от приставки версию ПО
 	if(isset($_GET['version'])){
 		$version = $_GET['version'];
 	}
+	$fw = '';
 	//Получаем от приставки версию прошивки
 	if(isset($_GET['fw'])){
 		$fw = $_GET['fw'];
