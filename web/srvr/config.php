@@ -64,7 +64,7 @@ if(isset($_GET['type'])){
 	if(isset($_GET['version'])){
 		$version = $_GET['version'];
 	}
-	//Получаем от приставки версию ПО
+	//Получаем от приставки версию прошивки
 	if(isset($_GET['fw'])){
 		$fw = $_GET['fw'];
 	}
