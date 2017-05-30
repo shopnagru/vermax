@@ -8,7 +8,6 @@
 /web/.well-known/*
 # symfony
 /app/config/parameters.yml
-/build/
 /phpunit.xml
 /var/*
 !/var/cache
@@ -23,5 +22,6 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+/web/app_dev.php
 
 
