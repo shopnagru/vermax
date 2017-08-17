@@ -4,13 +4,23 @@ v-ip-tv 2017.05
 
 Панель управления приставками Vermax HD100 и UHD200, основанная на фреймворке Symfony 3.
 
+# Требования к серверу
+
+* PHP 5.6 и выше
+* MySQL
+* Корневая web-директория должна называться web, либо, быть ссылкой на web
+
 # Установка
 
-Перейдите в корневую web-директорию на сервере и выполните команды:
+Перейдите на уровень выше корневой web-директории на сервере и выполните команды:
 
-`git clone https://github.com/shopnagru/vermax.git .`
+`git init`
 
-`git checkout 2017.05`
+`git remote add origin https://github.com/shopnagru/vermax/`
+
+`git fetch`
+
+`git pull origin 2017.05`
 
 `composer update`
 
