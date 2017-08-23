@@ -5,8 +5,23 @@ RewriteEngine on
 RewriteRule ^config.properties$ /srvr/config.php?%{QUERY_STRING}&type=config [L]
 RewriteRule ^update.properties$ /srvr/config.php?%{QUERY_STRING}&type=update [L]
 RewriteRule ^setting.properties$ /srvr/config.php?%{QUERY_STRING}&type=setting [L]
-RewriteRule ^Vermax\sHD100/update.xml$ /srvr/config.php?%{QUERY_STRING}&type=firmware&model=HD100 [L]
-RewriteRule ^Vermax\sUHD200/update.xml$ /srvr/config.php?%{QUERY_STRING}&type=firmware&model=UHD200 [L]
+
+
+##################
+# Vermax 100
+#
+# # HDX
+RewriteRule ^Vermax\sHDX(.*)/update.xml$ /srvr/config.php?%{QUERY_STRING}&type=firmware&model=HDX [L]
+# # HD
+RewriteRule ^Vermax\sHD(.*)/update.xml$ /srvr/config.php?%{QUERY_STRING}&type=firmware&model=HD [L]
+##################
+# Vermax 200-300
+#
+# # UHDX
+RewriteRule ^Vermax\sUHDX(.*)/update.xml$ /srvr/config.php?%{QUERY_STRING}&type=firmware&model=UHDX [L]
+# # UHD
+RewriteRule ^Vermax\sUHD(.*)/update.xml$ /srvr/config.php?%{QUERY_STRING}&type=firmware&model=UHD [L]
+##################
 RewriteRule ^message(.*)$ /srvr/message.php?%{QUERY_STRING} [L]
 RewriteRule ^stat(.*)$ /srvr/stat.php?%{QUERY_STRING} [L]
 
