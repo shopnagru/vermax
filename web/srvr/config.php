@@ -114,14 +114,26 @@ if(isset($_GET['type'])){
 	if(empty($conf_id)){
 		if($t == 'firmware'){
 			switch($model){
-				case 'HD100':
+				case 'HD':
 					$conf_id = 4;
 					break;
-				case 'UHD200':
-					$defdevq = 'SELECT * FROM `configs` WHERE name="UHD200_default" LIMIT 1';
+				case 'HDX':
+					$defdevq = 'SELECT * FROM `configs` WHERE name="HDX_default" LIMIT 1';
 					$defdev = $db->query($defdevq);
 					$defdev = $defdev->fetch_assoc();
 					$conf_id = $defdev['id'];
+					break;
+				case 'UHD':
+					$defdevq = 'SELECT * FROM `configs` WHERE name="UHD200_default" OR name="UHD_default" LIMIT 1';
+					$defdev = $db->query($defdevq);
+					$defdev = $defdev->fetch_assoc();
+					$conf_id = $defdev['id'];
+					break;
+				case 'UHDX':
+					$defdevq = 'SELECT * FROM `configs` WHERE name="UHDX_default" LIMIT 1';
+					$defdev = $db->query($defdevq);
+					$defdev = $defdev->fetch_assoc();
+					$conf_id = $defdev['id'];					
 					break;
 				default:
 					$conf_id = 4;
