@@ -20,7 +20,7 @@ echo "Делаем дамп... ";
 //dump
 try {
     if(!file_exists('dumps')){
-        mkdir('dumps', 0700);
+        mkdir('dumps', 0755);
     }
     $dump_date = date('_Ymdhis');
     shell_exec('nohup sh dump.sh '.$host.' '.$user.' '.$pas.' '.$db_name.' '.$dump_date);
