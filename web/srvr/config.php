@@ -148,19 +148,31 @@ if(isset($_GET['type'])){
 		$db->query($query);
 	}
 	else{
-		if($t == 'firmware' && $model == 'UHD200'){
+		if($t == 'firmware' && in_array($model, array('UHD200', 'UHD', 'HDX', 'UHDX'))){
+			if($model == 'UHD200'){
+				$or = 'OR name="UHD_'.$conf_res.'"';
+				$ord = 'OR name="UHD_default"';
+			}
+			elseif($model == 'UHD'){
+				$or = 'OR name="UHD200_'.$conf_res.'"';	
+				$ord = 'OR name="UHD200_default"';				
+			}
+			else{
+				$or = '';
+				$ord = '';
+			}
 			$query = 'SELECT * FROM `configs` WHERE id='.$conf_id.' LIMIT 1';
 			$result = $db->query($query);
 			$result = $result->fetch_assoc();
 			$conf_res = $result['name'];
 			$conf_ar = explode('_', $conf_res);
 			if(count($conf_ar) > 1){
-				if($conf_ar[0] != 'UHD200'){
-					$query = 'SELECT * FROM `configs` WHERE name="UHD200_'.$conf_res.'" Limit 1';
+				if(!in_array($conf_ar[0], array('UHD200', 'UHD', 'HDX', 'UHDX'))){
+					$query = 'SELECT * FROM `configs` WHERE name="'.$model.'_'.$conf_res.'" '.$or.' Limit 1';
 					$result = $db->query($query);
 					$result = $result->fetch_assoc();
 					if(empty($result)){
-						$defdevq = 'SELECT * FROM `configs` WHERE name="UHD200_default" LIMIT 1';
+						$defdevq = 'SELECT * FROM `configs` WHERE name="'.$model.'_default" '.$ord.' LIMIT 1';
 						$defdev = $db->query($defdevq);
 						$defdev = $defdev->fetch_assoc();
 						$conf_id = $defdev['id'];
@@ -171,11 +183,11 @@ if(isset($_GET['type'])){
 				}
 			}
 			else{
-				$query = 'SELECT * FROM `configs` WHERE name="UHD200_'.$conf_res.'" Limit 1';
+				$query = 'SELECT * FROM `configs` WHERE name="'.$model.'_'.$conf_res.'" '.$or.' Limit 1';
 				$result = $db->query($query);
 				$result = $result->fetch_assoc();
 				if(empty($result)){
-					$defdevq = 'SELECT * FROM `configs` WHERE name="UHD200_default" LIMIT 1';
+					$defdevq = 'SELECT * FROM `configs` WHERE name="'.$model.'_default" '.$ord.' LIMIT 1';
 					$defdev = $db->query($defdevq);
 					$defdev = $defdev->fetch_assoc();
 					$conf_id = $defdev['id'];
