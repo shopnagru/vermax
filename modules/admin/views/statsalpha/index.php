@@ -34,11 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             $json = json_decode($model->{$column->attribute},1);
 
                             $val ='';
-                            foreach ($json as $k=>$v){
-                                if($k == 'date'){
-                                    $v = date('Y-m-d H:i:s',strtotime($v));
+                            if(is_array($json) || is_object($json)){
+                                foreach ($json as $k=>$v){
+                                    if($k == 'date'){
+                                        $v = date('Y-m-d H:i:s',strtotime($v));
+                                    }
+                                    $val .= $k.'=>'.$v."<br>";
                                 }
-                                $val .= $k.'=>'.$v."<br>";
                             }
                     return $val;
                 },
