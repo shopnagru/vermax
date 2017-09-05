@@ -17,6 +17,7 @@ Thumbs.db
 
 # composer itself is not needed
 composer.phar
+composer.lock
 
 # Mac DS_Store Files
 .DS_Store
@@ -31,6 +32,9 @@ tests/_support/_generated
 /web/assets/
 
 /config/db.php
+config/db.php
+
+runtime/.gitignore
 
 /logs
 /ovas
