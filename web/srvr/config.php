@@ -143,7 +143,16 @@ if(isset($_GET['type'])){
 		}
 		else{
 			$query = 'INSERT INTO `clients` (`name`, `mac`, `ip`, `conf`, `setting`, `update`, `firmware`) VALUES ("user_' . $ip . '", "' . $mac . '", "' . $ip . '", "1", "2", "3", "4");';
-			$conf_id = 1;
+			if($t == 'config'){
+				$conf_id = 1;
+			}
+			elseif($t == 'update'){
+				$conf_id = 3;
+			}
+			elseif($t == 'setting'){
+				$conf_id = 2;
+			}
+			
 		}
 		$db->query($query);
 	}
